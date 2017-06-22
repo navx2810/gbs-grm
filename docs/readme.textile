@@ -1,1 +1,10 @@
 h1. Groomer Application
+
+h2. Structure
+
+- Controllers := the folder containing all the back-end REST controllers.
+- src := the folder containing all the aurelia code.
+- test := the folder containing the unit tests.
+- wwwroot := the web's root folder. Everything in here is served statically.
+- Program.cs := you'll probably never touch this file, but it's the file that starts the server.
+- Startup.cs := this file contains all the configuration for the back-end server.
