@@ -1,0 +1,78 @@
+swagger: '2.0'
+info:
+  version: 0.0.1
+  title: GRM
+  description: API for the GRM Application
+  contact:
+    name: Matt Fetterman
+    email: navx2810@gmail.com
+    
+basePath: /api
+
+tags:
+- name: Customer
+- name: Groomer
+
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+    
+
+paths:
+  
+  /me:
+    get:
+      security: [Bearer: []]
+      tags: [Customer, Groomer]
+      summary: Retrieve information about the logged in userfrom the header token.
+      description: Retrieve information about the logged in user from the header token.
+      parameters:
+        - in: header
+          name: ID
+          type: integer
+          required: true
+          description: The token assigned to the user.
+      responses:
+        200:
+          description: Returns either the customer information or the groomer information, depending on who's logged in.
+
+  /customer/{id}:
+      get:
+        tags: [Customer]
+        summary: Retrieves information about the customer of a given ID.
+        parameters:
+        - name: id
+          in: path
+          description: The id of the customer.
+          type: integer
+          required: true
+        responses:
+          200:
+            description: Returns the information on the customer
+          404:
+            description: Customer doesn't exist with that ID
+          400:
+            description: Bad request.
+      patch:
+        tags: [Customer]
+        summary: Update information about the customer
+        parameters:
+        - name: email
+          in: body
+          description: The new email address of the customer.
+          type: string
+          format: email
+          required: false
+        - name: name
+          in: body
+          type: string
+          description: The name of the customer.
+          required: false
+        - name: password
+          in: body
+          type: string
+          format: password
+          description: The new password of the customer.
+          required: false

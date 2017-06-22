@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace groomer_app.Controllers
+namespace GRM.Controllers
 {
     [Route("api/[controller]")]
     public class ValuesController : Controller
