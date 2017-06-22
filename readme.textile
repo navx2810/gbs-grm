@@ -1,2 +1,7 @@
 h1. GSB : GRM
 
+This repository will contain the project labeled GRM. Here are some helpful links to get you navigating through this repo.
+
+- "Tasks":https://github.com/navx2810/gbs-grm/issues := the issues page is where you'll find the tasks that need completed.
+- "Projects":https://github.com/navx2810/gbs-grm/projects := the project page is where you'll find what tasks are currently being worked on or finished at this very moment.
+- "Docs":/docs/readme.textile := ths docs folder is where you'll find detailed documentation on the repository, code, and development cycle.
