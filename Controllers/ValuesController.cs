@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Jose;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GRM.Controllers
@@ -11,9 +12,14 @@ namespace GRM.Controllers
     {
         // GET api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public string Get()
         {
-            return new string[] { "value1", "value2" };
+            var headers = new Dictionary<string, object>();
+            headers["exp"] = DateTime.Now.AddHours(4).ToFileTime();
+            var payload = new { Id = "209d9al" };
+            var str = Jose.JWT.Encode(payload, "s3c3rtk3y", JwsAlgorithm.none, headers);
+            HttpContext.Request.Headers.Add("Authorization", "Bearer " + str);
+            return str;
         }
 
         // GET api/values/5
